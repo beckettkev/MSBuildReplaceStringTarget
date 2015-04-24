@@ -55,3 +55,7 @@ Now you need to add the Target. The Target runs at the correct point in the Shar
 		<Message Text="Modifying Views of type &quot;$(MSBuildProjectDirectory)\$(_PackageTempDir)\**\*.cshtml&quot; with ReplacementText is &quot;@(FetchedUrlBaseValue)&quot;." Importance="high" />
 		<FileUpdate Files="@(ViewFiles)" Regex="MyProjectUrlBasePath" ReplacementText="@(FetchedUrlBaseValue)" />
 	</Target>
+	
+The important thing to notice here is we are pulling in the Microsoft.Web.Publishing.targets to allow us to hook into the web publish process (MS Deploy). Once the temporary files have been copied over in preperation for the publish, we can do our string replacement (AfterTargets="CopyAllFilesToSingleFolderForMsdeploy").
+
+That's it, save the project file and reload it in visual studio.
