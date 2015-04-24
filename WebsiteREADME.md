@@ -1,3 +1,5 @@
+#Website String Replacement with MSBuild
+
 Sample Targets for MSBuild for Replacing Strings within website files in MSBuild.
 
 First of all, if you haven't done so already, download the MSBuildTasks
@@ -17,16 +19,16 @@ Now we need to add a new xml file called Url_Replacements.xml to your SharePoint
 
 Obviously amend the Urls in this file to map to the relevant environment base urls for your project. The next stage is to put a special string token in each file, where you want the replacement to take place (e.g. MyProjectUrlBasePath):
 
-  ...
-  <link type="text/css" rel="stylesheet" href="MyProjectUrlBasePath/Assets/styles/projstyles_core" />
-  ...
+	...
+	  <link type="text/css" rel="stylesheet" href="MyProjectUrlBasePath/Assets/styles/projstyles_core" />
+  	...
 
 Now unload the project by right clicking on it in Visual Studio and then Right click again and edit the *.csproj file to include the following four lines underneath the existing PropertyGroup region:
 
-  <PropertyGroup>
-      <MSBuildCommunityTasksPath>$(MSBuildProjectDirectory)\..\.build</MSBuildCommunityTasksPath>
-  </PropertyGroup>
-  <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets" />
+	<PropertyGroup>
+		<MSBuildCommunityTasksPath>$(MSBuildProjectDirectory)\..\.build</MSBuildCommunityTasksPath>
+	</PropertyGroup>
+	<Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets" />
 
 Now you need to add the Target. The Target runs at the correct point in the SharePoint publishing process to replace the special string value with the base url for the given environment that you are publishing for (so for example, to replace values in views only):
 
