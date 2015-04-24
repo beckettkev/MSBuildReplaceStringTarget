@@ -1,7 +1,11 @@
-# MSBuildReplaceStringTarget
-Sample Targets for MSBuild for Replacing Strings within website files in MSBuild. 
+# SharePoint Project - MSBuild Replace String Target
 
-First of all download the MSBuildTasks
+Sample Targets for MSBuild for Replacing Strings within website files in MSBuild. Make sure you have a build configuration for each environment you want to publish to. To find out how to do this, refer to the guidance on Chris O'Brien's blog:
+
+	http://www.sharepointnutsandbolts.com/2013/09/provisioning-managed-metadata-fields-in-Office-365.html
+	http://www.sharepointnutsandbolts.com/search?q=build+configuration
+
+Once you have set that up, you will need to download the MSBuildTasks package from NuGet:
 
 	PM> Install-Package MSBuildTasks
 
