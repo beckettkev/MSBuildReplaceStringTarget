@@ -8,14 +8,14 @@ First of all, if you haven't done so already, download the MSBuildTasks
 
 Now we need to add a new xml file called Url_Replacements.xml to your SharePoint project, in a sub folder called _Replacements:
 
-  <Replacements>
-      <Environment Name="DevTenancy">
-          <UrlBase>https://MyProjectDevAssets.azurewebsites.net</UrlBase>
-      </Environment>
-      <Environment Name="TestTenancy">
-          <UrlBase>https://MyProjectTestAssets.azurewebsites.net</UrlBase>
-      </Environment>
-  </Replacements>
+	<Replacements>
+		<Environment Name="myproject-dev - Web Deploy">
+			<UrlBase>https://MyProjectDevAssets.azurewebsites.net</UrlBase>
+		</Environment>
+		<Environment Name="myproject-test - Web Deploy">
+			<UrlBase>https://MyProjectTestAssets.azurewebsites.net</UrlBase>
+		</Environment>
+	</Replacements>
 
 Obviously amend the Urls in this file to map to the relevant environment base urls for your project. The next stage is to put a special string token in each file, where you want the replacement to take place (e.g. MyProjectUrlBasePath):
 
