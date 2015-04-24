@@ -4,7 +4,7 @@ Sample Targets for MSBuild for Replacing Strings within website files in MSBuild
 
 First of all, if you haven't done so already, download the MSBuildTasks
 
-  PM> Install-Package MSBuildTasks
+	PM> Install-Package MSBuildTasks
 
 Now we need to add a new xml file called Url_Replacements.xml to your SharePoint project, in a sub folder called _Replacements:
 
