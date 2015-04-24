@@ -1,5 +1,11 @@
 # MSBuildReplaceStringTarget
-Sample Targets for MSBuild for Replacing Strings in MSBuild.
+Sample Targets for MSBuild for Replacing Strings within website files in MSBuild. 
+
+First of all download the MSBuildTasks
+
+	PM> Install-Package MSBuildTasks
+
+Then amend your *.csproj file to include the following four lines underneath the existing PropertyGroup region:
 
 
 	<PropertyGroup>
@@ -7,7 +13,9 @@ Sample Targets for MSBuild for Replacing Strings in MSBuild.
 	</PropertyGroup>
 	<Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets" />
 	
-<Target Name="AfterLayout" Condition="$(Configuration) != 'Debug' AND $(Configuration) != 'Release'">
+Now you need to add the Target. The Target runs at the correct point in the SharePoint publishing process to replace the special string value with the base url for the given environment that you are publishing for:
+	
+	<Target Name="AfterLayout" Condition="$(Configuration) != 'Debug' AND $(Configuration) != 'Release'">
 		<PropertyGroup>
 			<ReplacementsFile>_Replacements\Url_Replacements.xml</ReplacementsFile>
 		</PropertyGroup>
